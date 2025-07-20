@@ -31,13 +31,14 @@ export default function YearPage({ params }: { params: { year: string } }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {yearCourses.length > 0 ? (
             yearCourses.map((course) => (
-              <div
+              <Link
                 key={course.id}
-                className="bg-gray-800 p-6 rounded-xl shadow-lg"
+                href={`/dashboard/${course.yearSlug}/${course.id}`}
+                className="block bg-gray-800 p-6 rounded-xl shadow-lg hover:bg-gray-700 transition-colors"
               >
                 <h2 className="text-2xl font-bold text-white">{course.title}</h2>
                 <p className="mt-2 text-gray-300">{course.description}</p>
-              </div>
+              </Link>
             ))
           ) : (
             <p className="col-span-full text-center text-gray-400">
